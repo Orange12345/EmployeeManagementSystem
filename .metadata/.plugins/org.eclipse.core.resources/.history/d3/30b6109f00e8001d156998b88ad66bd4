@@ -1,0 +1,71 @@
+/**
+ * 
+ */
+package main;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+import bussinesslogic.CrudOperationService;
+import model.Employee;
+
+/**
+ * @author Admin
+ *
+ */
+public class MainCaller {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		HashMap<Integer, Employee> empMap=new HashMap<>();
+		CrudOperationService crudOperationService=new CrudOperationService();
+		int n;
+		do {
+			System.out.println("please choose option from menu");
+			menu();
+			n=sc.nextInt();
+			switch(n)
+			{
+			case 1:
+				System.out.println("please enter how many employee want to add");
+				int empCount=sc.nextInt();
+				crudOperationService.addemployee(empCount,empMap);
+				break;
+				
+			case 2:
+				System.out.println("Please enter the employee id , you want to update :");
+				int empId= sc.nextInt();
+				crudOperationService.updateemployee(empId,empMap);
+				break;
+			case 3:
+				System.out.println("Please enter the employee id , you want to getDetails :");
+				int getEmpId=sc.nextInt();
+				crudOperationService.getEmpDetails(getEmpId,empMap);
+				break;
+			case 4:
+				System.out.println("Please enter the employee id , you want to Delete :");
+				int empIdelete=sc.nextInt();
+				crudOperationService.getEmpDetails(empIdelete,empMap);
+				break;
+			case 5:
+				crudOperationService.display(empMap);
+				break;
+			}
+			
+		}while(n!=6);
+	}
+	
+	public static void menu()
+	{
+		System.out.println("1. Add Employee");
+		System.out.println("2. Update Employee");
+		System.out.println("3. Search Employee");
+		System.out.println("4. Delete Employee");
+		System.out.println("5. Display Employee");
+		System.out.println("6. Exit-------");
+	}
+
+}

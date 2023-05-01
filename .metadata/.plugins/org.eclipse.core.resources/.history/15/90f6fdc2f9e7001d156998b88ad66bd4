@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package main;
+
+/**
+ * @author Admin
+ *
+ */
+public class MainCaller {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void menu()
+	{
+		System.out.println("1. Add Employee");
+		System.out.println("2. Update Employee");
+		System.out.println("3. Search Employee");
+		System.out.println("4. Delete Employee");
+		System.out.println("5. Display Employee");
+		System.out.println("6. Exit-------");
+	}
+
+}

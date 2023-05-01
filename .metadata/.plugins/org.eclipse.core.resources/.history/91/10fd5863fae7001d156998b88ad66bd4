@@ -1,0 +1,10 @@
+package bussinesslogic;
+
+public class CrudOperationService {
+
+	public void addemployee(int empCount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

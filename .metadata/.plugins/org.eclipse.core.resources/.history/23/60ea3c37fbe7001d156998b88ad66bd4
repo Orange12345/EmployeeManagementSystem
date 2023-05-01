@@ -1,0 +1,16 @@
+package bussinesslogic;
+
+import java.util.HashMap;
+
+import model.Employee;
+
+public class CrudOperationService {
+	HashMap<Integer, Employee> empMap=new HashMap<>();
+
+	public void addemployee(int empCount) {
+		
+		
+		
+	}
+
+}

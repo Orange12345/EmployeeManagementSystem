@@ -1,0 +1,51 @@
+/**
+ * 
+ */
+package main;
+
+import java.util.Scanner;
+
+import bussinesslogic.CrudOperationService;
+
+/**
+ * @author Admin
+ *
+ */
+public class MainCaller {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		CrudOperationService crudOperationService=new CrudOperationService();
+		do {
+			menu();
+			int n=sc.nextInt();
+			switch(n)
+			{
+			case 1:
+				System.out.println("please enter how many employee want to add");
+				int empCount=sc.nextInt();
+				crudOperationService.addemployee(empCount);
+				break;
+				
+			case 2:
+				
+				break;
+			}
+			
+		}while(6!=6);
+	}
+	
+	public static void menu()
+	{
+		System.out.println("1. Add Employee");
+		System.out.println("2. Update Employee");
+		System.out.println("3. Search Employee");
+		System.out.println("4. Delete Employee");
+		System.out.println("5. Display Employee");
+		System.out.println("6. Exit-------");
+	}
+
+}

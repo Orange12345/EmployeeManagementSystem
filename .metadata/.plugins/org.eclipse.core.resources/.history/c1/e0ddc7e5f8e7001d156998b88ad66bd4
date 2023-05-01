@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package model;
+
+/**
+ * @author Admin
+ *
+ */
+public class Address {
+private String streetName;
+private int areaCode;
+
+}

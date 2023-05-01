@@ -1,0 +1,32 @@
+package bussinesslogic;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+import model.Address;
+import model.Employee;
+
+public class CrudOperationService {
+	
+	Scanner sc=new Scanner(System.in);
+	public void addemployee(int empCount, HashMap<Integer, Employee> empMap) {
+		Employee emp=null;
+		Address adr=new Address();
+		for(int i=1;i<=empCount;i++)
+		{
+			emp=new Employee();
+			System.out.println("Enter the name of employee");
+			emp.setName(sc.next());
+			System.out.println("Enter the id of employee");
+			emp.setId(sc.nextInt());
+			System.out.println("Enter the street name of employee adress");
+			adr.setStreetName(sc.next());
+			System.out.println("Enter the area code of employee adress");
+			adr.setAreaCode(sc.nextInt());
+			emp.setAdrAddress(adr);
+			empMap.put(emp.getId(), emp);
+		}
+		empMap.forEach((k,v) -> System.out.println(k + " " + v));
+	}
+
+}

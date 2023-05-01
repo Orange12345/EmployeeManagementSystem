@@ -1,0 +1,84 @@
+package bussinesslogic;
+
+import java.util.HashMap;
+import java.util.Optional;
+import java.util.Scanner;
+
+import model.Address;
+import model.Employee;
+
+public class CrudOperationService {
+	
+	Scanner sc=new Scanner(System.in);
+	public void addemployee(int empCount, HashMap<Integer, Employee> empMap) {
+		Employee emp=null;
+		Address adr=new Address();
+		for(int i=1;i<=empCount;i++)
+		{
+			emp=new Employee();
+			System.out.println("Enter the name of employee");
+			emp.setName(sc.next());
+			System.out.println("Enter the id of employee");
+			emp.setId(sc.nextInt());
+			System.out.println("Enter the street name of employee adress");
+			adr.setStreetName(sc.next());
+			System.out.println("Enter the area code of employee adress");
+			adr.setAreaCode(sc.nextInt());
+			emp.setAdrAddress(adr);
+			empMap.put(emp.getId(), emp);
+		}
+		empMap.forEach((k,v) -> System.out.println(k + " " + v));
+	}
+	public void display(HashMap<Integer, Employee> empMap)
+	{
+		System.out.println("Employee Details below : ");
+		empMap.forEach((k,v) -> System.out.println(k + " " + v));	
+	}
+	public void updateemployee(int empId, HashMap<Integer, Employee> empMap) {
+		int n;
+		do {
+			System.out.println("which details you want to update");
+			updateDetails();
+			n=sc.nextInt();
+			switch(n)
+			{
+			case 1:
+				System.out.println("enter the new updated name :");
+				String name=sc.next();
+				Employee emp=empMap.get(empId);
+				emp.setName(name);
+				break;
+			case 2:
+				System.out.println("enter the new updated street name :");
+				String streetName=sc.next();
+				Employee emp2=empMap.get(empId);
+				emp2.getAdrAddress().setStreetName(streetName);
+				break;
+			case 3:
+				System.out.println("enter the new updated street code :");
+				int streetCodee=sc.nextInt();
+				Employee emp3=empMap.get(empId);
+				emp3.getAdrAddress().setAreaCode(streetCodee);
+				break;
+			
+			}
+		}while(n!=4);
+	}
+	private void updateDetails() {
+		System.out.println("1. Employee Name");
+		System.out.println("2. Employee street name");
+		System.out.println("3. Employee Area code");
+		System.out.println("4. Exit-------");
+	}
+	public void getEmpDetails(int getEmpId, HashMap<Integer, Employee> empMap) {
+		Optional<Employee> emp=Optional.ofNullable(empMap.get(getEmpId));
+		if(emp.isPresent())
+		{
+			
+		}
+		else
+		{
+			System.out.println("Record not found");
+		}
+	}
+}
